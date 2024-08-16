@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vocate/view/screens/bottomnavbar.dart';
 import 'package:vocate/view/screens/homescreen.dart';
+import 'package:vocate/view/screens/profiledart';
 
 class SavedJobsScreen extends StatefulWidget {
   @override
@@ -21,6 +22,10 @@ class _SavedJobsScreenState extends State<SavedJobsScreen> {
     if (index == 3) {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => SavedJobsScreen()));
+    }
+    if (index == 4) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => UserProfileScreen()));
     }
   }
 

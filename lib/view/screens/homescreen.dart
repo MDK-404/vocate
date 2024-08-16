@@ -40,8 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   AssetImage('assets/profile.jpg'), // User profile picture
             ),
             SizedBox(width: 8),
-            Text(
-              'Good Evening, Gregor',
+            Flexible(
+              child: Text(
+                'Good Evening, Gregor',
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
             Spacer(),
             IconButton(
