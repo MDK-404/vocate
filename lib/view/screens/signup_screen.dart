@@ -12,15 +12,37 @@ class SignUpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 100),
-              Text(
-                'Vocate',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+              Container(
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    Text(
+                      'Vocate',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Log in to your account to continue using Vocate!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
+                decoration: BoxDecoration(
+                  color: Color(0xFF8A2BE2),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                padding: EdgeInsets.all(20),
               ),
               SizedBox(height: 20),
-              Text(
+              const Text(
                 'Create a new account to join Vocate!',
                 style: TextStyle(fontSize: 18),
               ),
@@ -52,12 +74,20 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Handle sign up action
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
                 },
-                child: Text('Create My Account'),
+                child: Text(
+                  'Create My Account',
+                  style: TextStyle(color: Colors.white),
+                ),
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF8A2BE2), // Button color
                   padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   textStyle: TextStyle(fontSize: 18),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
               SizedBox(height: 20),

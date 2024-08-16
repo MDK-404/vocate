@@ -1,0 +1,364 @@
+// import 'package:flutter/material.dart';
+// import 'package:vocate/view/screens/bottomnavbar.dart';
+
+
+
+// class UserProfileScreen extends StatefulWidget {
+//   @override
+//   _UserProfileScreenState createState() => _UserProfileScreenState();
+// }
+
+// class _UserProfileScreenState extends State<UserProfileScreen> {
+//   int _selectedIndex = 4; // Assuming Profile is selected by default
+
+//   void _onItemTapped(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//      });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('My Profile'),
+//         centerTitle: true,
+//         backgroundColor: Colors.transparent,
+//         elevation: 0,
+//         actions: [
+//           IconButton(
+//             icon: Icon(Icons.more_vert),
+//             onPressed: () {
+//               // Implement your action here
+//             },
+//           ),
+//         ],
+//       ),
+//       body: SingleChildScrollView(
+//         child: Column(
+//           children: [
+//             // Profile Header
+//             Padding(
+//               padding: const EdgeInsets.all(16.0),
+//               child: Row(
+//                 children: [
+//                   CircleAvatar(
+//                     radius: 40,
+//                     backgroundImage: NetworkImage('https://your_image_url'), // Replace with actual image
+//                   ),
+//                   SizedBox(width: 16),
+//                   Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       Text(
+//                         'Alfred Solomons',
+//                         style: TextStyle(
+//                           fontSize: 24,
+//                           fontWeight: FontWeight.bold,
+//                         ),
+//                       ),
+//                       Text(
+//                         'Visual Designer @ Amazon\nLondon, UK',
+//                         style: TextStyle(
+//                           color: Colors.grey,
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                   Spacer(),
+//                   IconButton(
+//                     icon: Icon(Icons.edit),
+//                     onPressed: () {
+//                       // Implement your edit action here
+//                     },
+//                   ),
+//                 ],
+//               ),
+//             ),
+//             // Preferences Section
+//             ListTile(
+//               title: Text('Personal Information'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to Personal Information screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Jobs You Posted'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to Jobs You Posted screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Account Settings'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to Account Settings screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Application Settings'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to Application Settings screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Privacy Options'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to Privacy Options screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Invite Friends'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to Invite Friends screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('User Feedback'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to User Feedback screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('FAQs and Support'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to FAQs and Support screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Privacy Policy'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Navigate to Privacy Policy screen
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Log Out'),
+//               trailing: Icon(Icons.arrow_forward_ios),
+//               onTap: () {
+//                 // Implement log out functionality here
+//               },
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.symmetric(vertical: 20.0),
+//               child: Text(
+//                 'Designed with ❤️ by Sobon Shofiq',
+//                 style: TextStyle(color: Colors.grey),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//       bottomNavigationBar: CustomNavBar(
+//         currentIndex: _selectedIndex,
+//         onTap: _onItemTapped,
+//       ),
+//     );
+//   }
+// }
+
+import 'package:flutter/material.dart';
+import 'package:vocate/view/screens/bottomnavbar.dart'; 
+import 'package:vocate/view/screens/saved_jobs.dart';
+import 'package:vocate/view/screens/homescreen.dart';
+
+class UserProfileScreen extends StatefulWidget {
+  @override
+  _UserProfileScreenState createState() => _UserProfileScreenState();
+}
+
+class _UserProfileScreenState extends State<UserProfileScreen> {
+  int _selectedIndex = 4; // Assuming Profile is selected by default
+
+   void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    if (index == 0) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+    }
+    if (index == 3) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => SavedJobsScreen()));
+    }
+    if (index == 4) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => UserProfileScreen()));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('My Profile'),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () {
+              // Implement your action here
+            },
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Profile Header
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: NetworkImage('https://your_image_url'), // Replace with actual image
+                  ),
+                  SizedBox(width: 16),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Alfred Solomons',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'Visual Designer @ Amazon\nLondon, UK',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  IconButton(
+                    icon: Icon(Icons.edit),
+                    onPressed: () {
+                      // Implement your edit action here
+                    },
+                  ),
+                ],
+              ),
+            ),
+
+            Divider(thickness: 1, color: Colors.grey[300]),
+
+            // Preferences Section with Icons
+            _buildProfileOption(
+              icon: Icons.person_outline,
+              title: 'Personal Information',
+              onTap: () {
+                // Navigate to Personal Information screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.work_outline,
+              title: 'Jobs You Posted',
+              onTap: () {
+                // Navigate to Jobs You Posted screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.settings_outlined,
+              title: 'Account Settings',
+              onTap: () {
+                // Navigate to Account Settings screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.apps_outlined,
+              title: 'Application Settings',
+              onTap: () {
+                // Navigate to Application Settings screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.lock_outline,
+              title: 'Privacy Options',
+              onTap: () {
+                // Navigate to Privacy Options screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.group_outlined,
+              title: 'Invite Friends',
+              onTap: () {
+                // Navigate to Invite Friends screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.feedback_outlined,
+              title: 'User Feedback',
+              onTap: () {
+                // Navigate to User Feedback screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.help_outline,
+              title: 'FAQs and Support',
+              onTap: () {
+                // Navigate to FAQs and Support screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.policy_outlined,
+              title: 'Privacy Policy',
+              onTap: () {
+                // Navigate to Privacy Policy screen
+              },
+            ),
+            _buildProfileOption(
+              icon: Icons.logout,
+              title: 'Log Out',
+              onTap: () {
+                // Implement log out functionality here
+              },
+            ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Center(
+                child: Text(
+                  'Designed with ❤️ by Sobon Shofiq',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: CustomNavBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+
+  Widget _buildProfileOption({required IconData icon, required String title, required Function() onTap}) {
+    return Column(
+      children: [
+        ListTile(
+          leading: Icon(icon, color: Colors.purple),
+          title: Text(title),
+          trailing: Icon(Icons.arrow_forward_ios, color: Colors.grey),
+          onTap: onTap,
+        ),
+        Divider(thickness: 1, color: Colors.grey[300]),
+      ],
+    );
+  }
+}
