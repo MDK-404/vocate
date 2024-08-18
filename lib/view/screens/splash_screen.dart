@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vocate/view/screens/searchresult.dart';
 import 'package:vocate/view/screens/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(seconds: 3), () {});
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => WelcomeScreen()),
+      MaterialPageRoute(builder: (context) => SearchResultsScreen()),
     );
   }
 
